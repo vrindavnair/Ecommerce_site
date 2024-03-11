@@ -4,23 +4,27 @@ import express  from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from 'dotenv'
-import  Color  from "colors";
 import cors from 'cors';
+import  Color  from "colors";
 import authRouter from './routes/authRoute.js'
 import morgan from "morgan"
 
 
-
-
-dotenv.config();
-
 const app = express();
 const port = process.env.PORT || 8080;
+dotenv.config();
+
 
 // Middleware
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(morgan("dev"))
+app.use(cors({
+  origin: ['http://localhost:5173'], // Allow requests from this origin
+  methods:["POST","GET"]
+ 
+}));
 
 
 app.get("/",(req,res)=>{

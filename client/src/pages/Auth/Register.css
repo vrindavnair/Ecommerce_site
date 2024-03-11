@@ -1,0 +1,23 @@
+.body{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(208, 187, 205, 0.5),
+        rgba(236, 114, 228, 0.5)
+      ),
+      url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+        center;
+    background-size: cover;
+ 
+    
+  
+}
+.box{
+    background-color: rgb(227, 177, 216);
+    margin-top: 100px;
+    height: 450px;
+}
+.inputbox{
+    margin-left: 100px;
+    border-radius: 15px;
+}
