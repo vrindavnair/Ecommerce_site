@@ -8,6 +8,8 @@ import cors from 'cors';
 import  Color  from "colors";
 import authRouter from './routes/authRoute.js'
 import morgan from "morgan"
+import categoryRoute from './routes/categoryRoute.js'
+import productRoute from './routes/productRoute.js'
 
 
 const app = express();
@@ -31,6 +33,9 @@ app.get("/",(req,res)=>{
   res.send("hello")
 })
 app.use("/api/v1/auth",authRouter)
+app.use("/api/v1/category",categoryRoute)
+app.use("/api/v1/product",productRoute)
+
 
 
 // MongoDB Connection

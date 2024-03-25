@@ -1,17 +1,17 @@
 import React  from 'react'
  import Layout from '../../../components/layout/Layout'
-// //import { useAuth } from '../../context/Auth'
-// import AdminMenu from '../../../components/layout/AdminMenu'
+import { useAuth } from '../../context/Auth'
+ import AdminMenu from '../../../components/layout/AdminMenu'
 
 
 const AdminDashbord = () => {
- // const [auth]=useAuth()
+  const [auth]=useAuth()
 
   return (
     <div>
-      <h1>heloo</h1>
+     
     <Layout title={"Admin Dashboard"}>
-    {/* <div className='container-fluid m-10 p10'>
+    <div className='container-fluid m-10 p10'>
       <div className='row'>
         <div className='col-md-3'>
           <AdminMenu/>
@@ -24,7 +24,7 @@ const AdminDashbord = () => {
           </div>
         </div>
       </div>
-          </div> */}
+</div>
 </Layout>
 </div>
 

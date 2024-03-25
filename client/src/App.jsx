@@ -14,6 +14,8 @@ import AdminDashbord from "./pages/Admin/AdminDashbord";
 import CreateCategory from "./pages/Admin/CreateCategory";
 import CreateProduct from "./pages/Admin/CreateProduct";
 import User from "./pages/Admin/User";
+import Profile from "./user/Profile";
+import Order from "./user/Order";
 
 
 
@@ -34,6 +36,9 @@ function App() {
         
             <Route path="/dashbord" element={< Private/>}>
             <Route path="user" element={<Dashboard />} />
+            <Route path="user/profile" element={<Profile/>}/>
+            <Route path="user/order" element={<Order/>}/>
+           
             </Route>
 
             <Route path="/dashbord" element={<AdminRoute/>}>

@@ -1,6 +1,7 @@
 import  express,{Router} from "express"
 import { registerController,loginController, testController ,forgetPasswordController,} from "../controllers/authController.js"
-import { isAdmin, requireSignIn } from "../middlewires/authmiddlewire.js"
+
+import { isAdmin, requireSignIn } from "../middlewires/authmiddlewire.js";
 
 
 const router=express.Router()
