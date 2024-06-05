@@ -16,6 +16,16 @@ import CreateProduct from "./pages/Admin/CreateProduct";
 import User from "./pages/Admin/User";
 import Profile from "./user/Profile";
 import Order from "./user/Order";
+import Products from "../components/layout/Products";
+import Updateproduct from "./pages/Admin/Updateproduct";
+import Search from "./pages/Search";
+import ProductDetails from "./pages/ProductDetails";
+import AllCategories from "./pages/AllCategories";
+import CategoryProducts from "./pages/CategoryProducts";
+import CartPage from "./pages/CartPage";
+
+
+
 
 
 
@@ -44,12 +54,31 @@ function App() {
             <Route path="/dashbord" element={<AdminRoute/>}>
               <Route path="admin" element={<AdminDashbord/>}/>
               <Route path="admin/create-category" element={<CreateCategory/>}/>
+
               <Route path="admin/create-product" element={<CreateProduct/>}/>
+
+              <Route path="admin/products" element={<Products/>}/>
+              <Route path="admin/product/:slug" element={<Updateproduct/>}/>
+          
+
+
               <Route path="admin/users" element={<User/>}/>
 
             </Route>
 
             <Route path="/forgotpassword" element={< ForgotPassword/>} />
+            <Route path="/search" element={<Search/>}/>
+            <Route path="/productDetails/:slug" element={<ProductDetails/>}/>
+            <Route path="/allcategories" element={<AllCategories/>}/>
+            <Route path="/categories/:slug" element={<CategoryProducts/>}/>
+
+            <Route path="/cart" element={<CartPage/>}/>
+
+
+            
+
+
+           
             
           </Routes>
         </BrowserRouter>

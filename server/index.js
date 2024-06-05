@@ -22,11 +22,12 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(morgan("dev"))
-app.use(cors({
-  origin: ['http://localhost:5173'], // Allow requests from this origin
-  methods:["POST","GET"]
+// app.use(cors({
+//   origin: ['http://localhost:5173'], // Allow requests from this origin
+//   methods:["POST","GET","DELETE","PUT"]
  
-}));
+// }));
+app.use(cors())
 
 
 app.get("/",(req,res)=>{
