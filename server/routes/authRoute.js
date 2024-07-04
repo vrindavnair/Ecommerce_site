@@ -1,5 +1,6 @@
 import  express,{Router} from "express"
-import { registerController,loginController, testController ,forgetPasswordController, updateProfileContoller,} from "../controllers/authController.js"
+import { registerController,loginController, testController ,forgetPasswordController,
+     updateProfileContoller, orderStatusController,} from "../controllers/authController.js"
 
 import { isAdmin, requireSignIn } from "../middlewires/authmiddlewire.js";
 
@@ -20,6 +21,8 @@ router.get("/admin-auth", requireSignIn, isAdmin, (req,res) => {
 });
 
 router.put("/profile",requireSignIn,updateProfileContoller)
+
+router.get('/orders',requireSignIn,orderStatusController)
 
 
 export default router

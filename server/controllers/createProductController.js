@@ -2,30 +2,27 @@
 import productModel from '../models/productModel.js';
 import slugify from 'slugify';
 import fs from 'fs'
-
+import express from 'express'
 import Categorymodel from '../models/categoryModel.js';
 import braintree from 'braintree';
-import dotenv from 'dotenv'
-import orderModel from '../models/orderModel.js';
+import dotenv from 'dotenv';
+ import orderModel from '../models/orderModel.js';
+ import cors from 'cors'
+const app = express();
+
+ app.use(cors());
+
+
+
 
 dotenv.config()
 
-var gateway=new braintree.BraintreeGateway({
-    environment:braintree.Environment.Sandbox,
-    merchantid: process.env.BRAIN_MERCHANTID,
-    publickey: process.env.BRAIN_PUBICKEY,
-    privatekey: process.env.BRAIN_PRIVATEKEY
-
-
-
-
-
-})
-
-
-
-
-
+var gateway = new braintree.BraintreeGateway({
+    environment: braintree.Environment.Sandbox,
+    merchantId: process.env.BRAINTREE_MERCHANR_ID,
+    publicKey: process.env.BRAINTREE_PUBLICK_KEY,
+    privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+  });
 
 
 export const createProductController=async(req,res)=>{
@@ -332,7 +329,7 @@ export const productCategoryController= async(req,res)=>{
     }
 }
 
-export const braintreeTokenController= async(req,res)=>{
+export const brainTreeTokenController= async(req,res)=>{
     try{
         gateway.clientToken.generate({}, function(err,response){
             if(err){
@@ -384,5 +381,11 @@ export const brainTreePaymentController=async(req,res)=>{
         
     }
 }
+
+
+  
+
+
+
 
 

@@ -2,6 +2,7 @@
 import userModel from "../models/userModel.js"
 import {hashPassword,comparePassword} from './../helpers/authHelpers.js'
 import JWT from "jsonwebtoken"
+import orderModel from '../models/orderModel.js'
 
 export const registerController=async(req,res)=>{
     try{
@@ -205,6 +206,31 @@ export const testController = async (req, res) => {
     res.send("admin sucessfully verified")
    
 
+}
+
+//order
+
+export const orderStatusController= async (req,res) =>{
+    try {
+        const {orderId}=req.params;
+        const {status}=req.body;
+        const orders= await orderModel.findByIdAndUpdates(
+            orderId,
+            {status},
+            {new:true}
+        );
+        res.json(orders);
+
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success:false,
+            message:"Error while updating orders",
+            error,
+        })
+        
+    }
 }
 
 
